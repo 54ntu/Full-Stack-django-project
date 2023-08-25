@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>register</title>
+    <style>
+        body{
+            font-family: arial,sans-serif;
+            background-color: #f2f2f2;
+            padding:20px ;
+
+        }
+
+        .registration_form{
+            max-width: 400px;
+            background-color: #ffffff;
+            margin: 0 auto;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 50px rgba(0, 0, 0, 0.1);
+
+        }
+
+
+        h2{
+           text-align: center; 
+           margin-bottom: 20px;
+        }
+
+        label{
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        input{
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+            margin-bottom: 20px;
+        }
+
+        .sub_btn{
+            font-size: 20px;
+        }
+
+        .sub_btn:hover{
+            background-color: rgba(119, 150, 153);
+            color: mediumblue;
+        }
+
+
+        p{
+            text-align: center;
+        }
+
+        a{
+            text-decoration: none;
+        }
+
+        a:hover{
+            color: aqua;
+        }
+
+    </style>
+</head>
+<body>
+<div class="registration_form">
+    <h2>registration page</h2>
+    <form action="{% url 'register' %}" method="post">
+        {% csrf_token %}
+        <label for="firstname">first name</label>
+        <input type="text " id="firstname" name="firstname" required>
+        <label for="lastname">Last name</label>
+        <input type="text " id="lastname" name="lastname" required>
+        <label for="email">Email: </label>
+        <input type="email" id="email" name="email" required>
+        <label for="username">Username: </label>
+        <input type="text" id="username" name="username" required>
+        <label for="password">Password: </label>
+        <input type="password" name="password">
+        <input type="submit" value="Sign Up" class="sub_btn">
+
+    </form>
+    <p>Already a member ? <a href="{% url 'login' %}">Sign In</a></p>
+</div>    
+</body>
+</html>

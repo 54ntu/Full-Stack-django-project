@@ -1,0 +1,33 @@
+<p>{{request.user}}</p>
+<hr>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TODO</title>
+    
+</head>
+<body>
+    <a href="{% url 'task-create' %}" >Add Task</a>
+<table>
+    <tr>
+    <th>TASK </th>
+    </tr>
+    {% for val in task%}
+
+  <tr>
+        <td>{{val.title}}</td>
+       <td> <a href="{% url 'detail' val.id %}" class=" btn btn-sm btn-primary">view</a></td>
+       <td> <a href="{% url 'edit' val.id %}" class=" btn btn-sm btn-primary">Edit</a></td>
+       <td> <a href="{% url 'delete' val.id %}" class=" btn btn-sm btn-primary">X</a></td>
+
+    </tr>
+
+{% endfor %}
+  
+    
+</table>
+</body>
+</html>
