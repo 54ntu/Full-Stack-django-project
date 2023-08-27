@@ -43,10 +43,18 @@ class RegisterView(View):
             return redirect('register')
         except:
             return redirect('register')
+        
+
+
+class LogoutView(View):
+    def get(self,request):
+        logout(request)
+        return redirect('login')
+
 
 
 # Create your views here.
-# @login_required(login_url='/login')
+@login_required(login_url='/login')
 def index(request):
     task_obj = Task.objects.all()
     context = {
